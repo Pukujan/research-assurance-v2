@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research Assurance Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="mark">RA</span><span>Research Assurance</span></div>
+      <nav class="tabs" aria-label="Primary">
+        <button class="tab active" data-view="research">Research</button>
+        <button class="tab" data-view="library">Library</button>
+        <button class="tab" data-view="reviews">Reviews</button>
+        <button class="tab" data-view="audit">Audit</button>
+      </nav>
+      <div class="user-chip">Maya Chen</div>
+    </header>
+
+    <main id="main" class="main"></main>
+  </div>
+
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <div class="eyebrow" id="drawer-eyebrow">Details</div>
+        <h2 id="drawer-title">Inspector</h2>
+      </div>
+      <button id="drawer-close" class="icon-button" aria-label="Close inspector">×</button>
+    </div>
+    <div id="drawer-body" class="drawer-body"></div>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
