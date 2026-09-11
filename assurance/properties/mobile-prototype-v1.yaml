@@ -1,0 +1,95 @@
+version: 1
+status: active
+date: 2026-09-11
+slice: standalone-mobile-prototype
+artifact: prototype/research-assurance-mobile.html
+properties:
+  - id: MP-001
+    statement: The standalone mobile prototype renders substantial Research content when opened directly from a local file URL.
+    severity: critical
+    scope: mobile-prototype
+    oracle: static verifier plus browser smoke test using file://
+    strategy: open artifact directly at a 390x844 viewport
+    acceptance: Research heading and report text are visible without running a server.
+    counterexample: The phone browser opens a blank shell or loading state because data requires fetch/network access.
+
+  - id: MP-002
+    statement: Core navigation and core Research content do not require JavaScript.
+    severity: critical
+    scope: mobile-prototype
+    oracle: static dependency scan plus browser smoke test with JavaScript disabled
+    strategy: disable JavaScript and visit all four top-level surfaces
+    acceptance: Research, Library, Reviews, and Audit remain reachable and readable.
+    counterexample: Tabs or all primary content disappear when scripts are blocked by a mobile attachment viewer.
+
+  - id: MP-003
+    statement: The standalone artifact has no runtime network dependency.
+    severity: critical
+    scope: mobile-prototype
+    oracle: deterministic source scan
+    strategy: reject external stylesheet/script/image/font/module URLs and fetch/XHR usage
+    acceptance: One HTML file contains all required content and styling.
+    counterexample: Opening the artifact offline causes missing content, styling, or data.
+
+  - id: MP-004
+    statement: Research is the default visible surface on first open.
+    severity: high
+    scope: mobile-prototype
+    oracle: deterministic DOM/source assertion and browser assertion
+    strategy: inspect default checked navigation control or equivalent no-script mechanism
+    acceptance: User sees the research title and report without taking an action.
+    counterexample: Initial page contains only navigation chrome or a hidden content region.
+
+  - id: MP-005
+    statement: The standalone artifact contains all four accepted v1 surfaces: Research, Library, Reviews, and Audit.
+    severity: high
+    scope: ux-structure
+    oracle: deterministic structural assertion
+    strategy: require stable section identifiers/headings for each surface
+    acceptance: Each surface has meaningful fixture content, not an empty placeholder.
+    counterexample: A tab exists but its corresponding section is absent or empty.
+
+  - id: MP-006
+    statement: Evidence inspection degrades gracefully without JavaScript.
+    severity: high
+    scope: evidence-ux
+    oracle: DOM/source assertion plus no-JavaScript browser test
+    strategy: use native HTML disclosure such as details/summary for claims, evidence, sources, or audit detail
+    acceptance: A user can inspect at least one claim-to-evidence-to-source path with JavaScript disabled.
+    counterexample: Evidence exists only inside a script-created drawer and is inaccessible in restrictive viewers.
+
+  - id: MP-007
+    statement: Table-oriented surfaces remain usable at a 390px mobile viewport without expanding the document viewport horizontally.
+    severity: high
+    scope: mobile-ux
+    oracle: browser layout assertion
+    strategy: measure documentElement scrollWidth and table container behavior at 390x844
+    acceptance: Tables scroll inside their containers; page-level horizontal overflow is absent or negligible.
+    counterexample: A wide Library or Audit table forces the entire page wider than the phone viewport.
+
+  - id: MP-008
+    statement: The fixture clearly distinguishes VERIFIED, DISPUTED, UNVERIFIED, and INFERENCE claim states.
+    severity: medium
+    scope: epistemic-ux
+    oracle: deterministic content assertion
+    strategy: search rendered/source text for each state and associated claim content
+    acceptance: All four epistemic states are represented.
+    counterexample: Prototype reduces assurance to a single confidence score or hides disputed/unknown states.
+
+  - id: MP-009
+    statement: Fixture data is labeled illustrative and must not be presented as current domain advice or production research.
+    severity: medium
+    scope: fixture-safety
+    oracle: deterministic content assertion
+    strategy: require an explicit fixture/demo label near the Research surface
+    acceptance: The artifact visibly identifies itself as a demo fixture.
+    counterexample: Example energy claims appear to be a live verified research output.
+
+  - id: MP-010
+    statement: The artifact passes deterministic verification before an agent may report the mobile slice complete.
+    severity: critical
+    scope: agent-workflow
+    oracle: prototype/verify_mobile.py exits zero
+    strategy: run verifier against prototype/research-assurance-mobile.html
+    acceptance: All static checks pass; any unavailable browser check is reported separately, not silently assumed.
+    counterexample: An implementation agent declares success after visual/code inspection without running the verifier.
