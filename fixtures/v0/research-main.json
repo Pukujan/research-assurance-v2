@@ -1,0 +1,144 @@
+{
+  "run": {
+    "id": "run_grid_001",
+    "organization_id": "org_demo",
+    "team_id": "team_energy",
+    "owner": "Maya Chen",
+    "question": "Compare long-duration battery storage and green hydrogen for grid balancing, focusing on efficiency, duration, infrastructure needs, and uncertainty.",
+    "title": "Grid balancing: batteries vs green hydrogen",
+    "status": "COMPLETE",
+    "visibility": "TEAM",
+    "created_at": "2026-09-11T14:05:00-04:00",
+    "updated_at": "2026-09-11T15:42:00-04:00",
+    "completed_at": "2026-09-11T15:40:00-04:00",
+    "topics": ["Energy", "Grid Storage", "Hydrogen"],
+    "assurance_summary": {"verified": 4, "disputed": 1, "unverified": 1, "inference": 1, "independent_roots": 3},
+    "component_manifest_ref": "manifest_demo_v1",
+    "current_document_version_id": "docv_grid_003",
+    "review_state": "PENDING",
+    "ontology_version": "core-ontology.v1"
+  },
+  "report_sections": [
+    {
+      "heading": "Bottom line",
+      "text": "Battery storage is better suited to high-efficiency, shorter-duration cycling, while hydrogen becomes more plausible when storage duration is very long and additional conversion losses can be tolerated.",
+      "claim_ids": ["clm_001", "clm_002", "clm_006"]
+    },
+    {
+      "heading": "Efficiency and operating profile",
+      "text": "The strongest distinction is round-trip efficiency. The evidence in this run consistently places battery storage above the hydrogen pathway, although exact values depend on system configuration and operating assumptions.",
+      "claim_ids": ["clm_001", "clm_004"]
+    },
+    {
+      "heading": "Duration and infrastructure",
+      "text": "Hydrogen can decouple power capacity from stored energy and may fit seasonal balancing better, but it requires production, storage, transport or on-site handling, and reconversion infrastructure. That makes project-specific infrastructure availability a major determinant.",
+      "claim_ids": ["clm_002", "clm_003", "clm_007"]
+    },
+    {
+      "heading": "Uncertainty",
+      "text": "Cost comparisons are unusually sensitive to utilization, storage medium, financing, equipment lifetime, and assumptions about future electrolyzer and fuel-cell performance. A single universal break-even duration is not established by the collected evidence.",
+      "claim_ids": ["clm_005", "clm_006"]
+    }
+  ],
+  "claims": [
+    {
+      "id": "clm_001",
+      "run_id": "run_grid_001",
+      "text": "Battery storage has materially higher round-trip efficiency than a power-to-hydrogen-to-power pathway in the compared system examples.",
+      "normalized_text": "Battery round-trip efficiency exceeds hydrogen round-trip efficiency in compared examples.",
+      "claim_type": "reported_fact",
+      "state": "VERIFIED",
+      "ir": {"subject": "battery storage", "predicate": "round_trip_efficiency_greater_than", "object_or_value": "hydrogen storage pathway", "qualifiers": ["in compared system examples"], "valid_time": null, "jurisdiction": null, "unit": "%", "comparison_basis": "round-trip efficiency"},
+      "verification_summary": "Supported by two independent technical sources; qualifiers preserved."
+    },
+    {
+      "id": "clm_002",
+      "run_id": "run_grid_001",
+      "text": "Hydrogen storage can support much longer storage durations without requiring battery capacity to scale in the same way as stored energy duration.",
+      "normalized_text": "Hydrogen storage can decouple stored-energy duration from electrochemical battery capacity scaling.",
+      "claim_type": "interpretation",
+      "state": "VERIFIED",
+      "ir": {"subject": "hydrogen storage", "predicate": "supports_long_duration_storage", "object_or_value": true, "qualifiers": ["system design dependent"], "valid_time": null, "jurisdiction": null, "unit": null, "comparison_basis": "storage duration"},
+      "verification_summary": "Supported by system-design and infrastructure evidence."
+    },
+    {
+      "id": "clm_003",
+      "run_id": "run_grid_001",
+      "text": "Hydrogen-based grid storage requires additional conversion and storage infrastructure beyond the electrical interconnection itself.",
+      "normalized_text": "Hydrogen grid storage requires production, storage, and reconversion infrastructure.",
+      "claim_type": "reported_fact",
+      "state": "VERIFIED",
+      "ir": {"subject": "hydrogen grid storage", "predicate": "requires", "object_or_value": "conversion and storage infrastructure", "qualifiers": [], "valid_time": null, "jurisdiction": null, "unit": null, "comparison_basis": null},
+      "verification_summary": "Directly supported by infrastructure descriptions."
+    },
+    {
+      "id": "clm_004",
+      "run_id": "run_grid_001",
+      "text": "A modeled battery pathway at 82% round-trip efficiency loses 18 MWh per 100 MWh cycled.",
+      "normalized_text": "At 82% efficiency, 18 MWh is lost per 100 MWh input.",
+      "claim_type": "calculated_fact",
+      "state": "VERIFIED",
+      "ir": {"subject": "battery pathway", "predicate": "energy_loss_per_100_mwh", "object_or_value": 18, "qualifiers": ["assuming 82% round-trip efficiency"], "valid_time": null, "jurisdiction": null, "unit": "MWh", "comparison_basis": "100 MWh input"},
+      "verification_summary": "Deterministic calculation verified from a registered efficiency input."
+    },
+    {
+      "id": "clm_005",
+      "run_id": "run_grid_001",
+      "text": "Green hydrogen becomes cheaper than batteries for grid balancing above a single universal storage-duration threshold.",
+      "normalized_text": "A universal break-even storage duration exists where hydrogen becomes cheaper than batteries.",
+      "claim_type": "interpretation",
+      "state": "DISPUTED",
+      "ir": {"subject": "green hydrogen", "predicate": "becomes_cheaper_after", "object_or_value": null, "qualifiers": ["universal threshold claimed"], "valid_time": null, "jurisdiction": null, "unit": "hours", "comparison_basis": "levelized storage cost"},
+      "verification_summary": "Conflicting model assumptions; evidence does not justify a universal threshold."
+    },
+    {
+      "id": "clm_006",
+      "run_id": "run_grid_001",
+      "text": "Project-specific economics depend strongly on utilization and local infrastructure availability.",
+      "normalized_text": "Utilization and infrastructure availability materially affect project economics.",
+      "claim_type": "inference",
+      "state": "INFERENCE",
+      "ir": {"subject": "storage project economics", "predicate": "depends_on", "object_or_value": ["utilization", "infrastructure availability"], "qualifiers": ["project-specific"], "valid_time": null, "jurisdiction": null, "unit": null, "comparison_basis": null},
+      "verification_summary": "Reasoned synthesis from multiple sources; explicitly marked inference."
+    },
+    {
+      "id": "clm_007",
+      "run_id": "run_grid_001",
+      "text": "Hydrogen storage has lower siting friction than batteries in all grid contexts.",
+      "normalized_text": "Hydrogen storage always has lower siting friction than batteries.",
+      "claim_type": "reported_fact",
+      "state": "UNVERIFIED",
+      "ir": {"subject": "hydrogen storage", "predicate": "siting_friction_less_than", "object_or_value": "battery storage", "qualifiers": ["all grid contexts"], "valid_time": null, "jurisdiction": null, "unit": null, "comparison_basis": "siting friction"},
+      "verification_summary": "No evidence in the run supports the universal qualifier."
+    }
+  ],
+  "source_versions": [
+    {"id": "srcv_001", "source_id": "src_tech_a", "title": "Long-duration storage technology assessment", "source_type": "TECHNICAL_REPORT", "publisher": "Independent Energy Institute", "url": "https://example.invalid/storage-assessment", "retrieved_at": "2026-09-11T14:16:00-04:00", "published_at": "2026-04-12", "artifact_hash": "sha256:demo001", "canonical_extraction_hash": "sha256:text001", "parser_version": "pdf-text.v1", "lineage_summary": "Independent technical root"},
+    {"id": "srcv_002", "source_id": "src_tech_b", "title": "Hydrogen storage system design guide", "source_type": "TECHNICAL_REPORT", "publisher": "Grid Systems Lab", "url": "https://example.invalid/h2-guide", "retrieved_at": "2026-09-11T14:22:00-04:00", "published_at": "2026-02-20", "artifact_hash": "sha256:demo002", "canonical_extraction_hash": "sha256:text002", "parser_version": "pdf-text.v1", "lineage_summary": "Independent technical root"},
+    {"id": "srcv_003", "source_id": "src_model_c", "title": "Storage cost sensitivity model", "source_type": "DATASET", "publisher": "Open Grid Modeling Group", "url": "https://example.invalid/cost-model", "retrieved_at": "2026-09-11T14:27:00-04:00", "published_at": "2026-07-03", "artifact_hash": "sha256:demo003", "canonical_extraction_hash": "sha256:text003", "parser_version": "csv.v1", "lineage_summary": "Independent modeling root"},
+    {"id": "srcv_004", "source_id": "src_news_d", "title": "Why hydrogen may matter for seasonal storage", "source_type": "ARTICLE", "publisher": "Energy Review", "url": "https://example.invalid/seasonal-story", "retrieved_at": "2026-09-11T14:31:00-04:00", "published_at": "2026-08-14", "artifact_hash": "sha256:demo004", "canonical_extraction_hash": "sha256:text004", "parser_version": "html.v1", "lineage_summary": "Downstream article citing srcv_002 and srcv_003"}
+  ],
+  "evidence_spans": [
+    {"id": "ev_001", "source_version_id": "srcv_001", "kind": "TEXT", "locator": "p. 14, efficiency table", "canonical_excerpt": "Representative battery systems in the modeled cases operate at substantially higher round-trip efficiency than hydrogen reconversion pathways.", "content_hash": "sha256:ev001"},
+    {"id": "ev_002", "source_version_id": "srcv_002", "kind": "TEXT", "locator": "p. 8, system architecture", "canonical_excerpt": "A hydrogen electricity-storage chain requires electrolysis, hydrogen storage, and a reconversion stage in addition to grid interconnection equipment.", "content_hash": "sha256:ev002"},
+    {"id": "ev_003", "source_version_id": "srcv_003", "kind": "TABLE_CELL", "locator": "scenario B, rte column", "canonical_excerpt": "battery_rte = 0.82", "content_hash": "sha256:ev003"},
+    {"id": "ev_004", "source_version_id": "srcv_003", "kind": "TEXT", "locator": "model notes, break-even section", "canonical_excerpt": "Break-even duration shifts materially with utilization, storage-medium cost, financing, and conversion efficiency assumptions.", "content_hash": "sha256:ev004"},
+    {"id": "ev_005", "source_version_id": "srcv_004", "kind": "TEXT", "locator": "paragraph 6", "canonical_excerpt": "Some scenarios show hydrogen becoming attractive at longer durations, but the threshold varies widely across published models.", "content_hash": "sha256:ev005"}
+  ],
+  "claim_evidence": [
+    {"claim_id": "clm_001", "evidence_span_id": "ev_001", "relation": "SUPPORTS"},
+    {"claim_id": "clm_002", "evidence_span_id": "ev_002", "relation": "SUPPORTS"},
+    {"claim_id": "clm_003", "evidence_span_id": "ev_002", "relation": "SUPPORTS"},
+    {"claim_id": "clm_004", "evidence_span_id": "ev_003", "relation": "SUPPORTS"},
+    {"claim_id": "clm_005", "evidence_span_id": "ev_004", "relation": "CONTRADICTS"},
+    {"claim_id": "clm_005", "evidence_span_id": "ev_005", "relation": "PARTIALLY_SUPPORTS"},
+    {"claim_id": "clm_006", "evidence_span_id": "ev_004", "relation": "SUPPORTS"}
+  ],
+  "document_versions": [
+    {"id": "docv_grid_003", "document_id": "doc_grid", "run_id": "run_grid_001", "version_number": 3, "parent_version_id": "docv_grid_002", "content_ref": "report_sections", "content_hash": "sha256:docv003", "creator": "Research Synthesizer", "created_at": "2026-09-11T15:39:00-04:00", "review_state": "PENDING"}
+  ],
+  "comments": [
+    {"id": "cmt_001", "author": "Noah Patel", "parent_type": "CLAIM", "parent_id": "clm_005", "body": "The universal-threshold wording looks too strong. The cost model makes this heavily assumption-dependent.", "created_at": "2026-09-11T16:02:00-04:00", "resolved_at": null},
+    {"id": "cmt_002", "author": "Maya Chen", "parent_type": "DOCUMENT_VERSION", "parent_id": "docv_grid_003", "body": "Agreed. I kept the report language explicitly project-specific and left the claim disputed for review.", "created_at": "2026-09-11T16:08:00-04:00", "resolved_at": null}
+  ]
+}
