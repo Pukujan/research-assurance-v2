@@ -1,0 +1,129 @@
+version: 1
+status: draft
+date: 2026-09-11
+properties:
+  - id: P-001
+    statement: Every visible citation must resolve to a registered claim-evidence relationship.
+    severity: critical
+    scope: research-output
+    oracle: deterministic reference-integrity test
+    counterexample: A citation marker renders but has no resolvable claim/evidence target.
+
+  - id: P-002
+    statement: Every EvidenceSpan must resolve to exactly one immutable SourceVersion.
+    severity: critical
+    scope: evidence
+    oracle: deterministic referential-integrity and artifact-hash test
+    counterexample: Evidence points to a mutable URL without a preserved source version.
+
+  - id: P-003
+    statement: Citation existence alone must never imply semantic support; the evidence relation is explicit.
+    severity: high
+    scope: epistemic-graph
+    oracle: schema and integration test requiring a typed relation
+    counterexample: A source is cited and UI labels the claim verified without SUPPORTS/PARTIALLY_SUPPORTS/CONTRADICTS/NEUTRAL evaluation.
+
+  - id: P-004
+    statement: Every externally verifiable factual assertion in a completed report must map to an allowed registered claim or be explicitly marked as inference/analysis.
+    severity: critical
+    scope: synthesis
+    oracle: reverse-claim audit plus structural checks
+    counterexample: Final prose introduces a new factual number, date, entity assertion, or causal claim absent from the allowed claim set.
+
+  - id: P-005
+    statement: ClaimIR must not invent structured values or qualifiers absent from the claim/evidence context.
+    severity: critical
+    scope: epistemic-ir
+    oracle: labeled extraction tests and metamorphic tests
+    counterexample: Missing jurisdiction or date is fabricated to satisfy the IR schema.
+
+  - id: P-006
+    statement: Unknown IR and temporal values remain unknown.
+    severity: high
+    scope: epistemic-ir
+    oracle: schema tests permitting null/unknown plus extraction tests
+    counterexample: Parser or model fills an unknown field with an inferred value without marking it as inference.
+
+  - id: P-007
+    statement: Every human approval binds to exactly one DocumentVersion.
+    severity: critical
+    scope: review
+    oracle: deterministic graph validation
+    counterexample: Approval is stored only at the ResearchRun level and silently applies to later edits.
+
+  - id: P-008
+    statement: Editing an approved document creates a new document version whose approval state is not inherited silently.
+    severity: critical
+    scope: review
+    oracle: version-lineage integration test
+    counterexample: Approved v3 is edited in place and remains marked approved.
+
+  - id: P-009
+    statement: Overlapping ResearchRuns retain independent provenance, claim decisions, synthesis, and audit histories.
+    severity: high
+    scope: research-run
+    oracle: integration test across overlapping runs
+    counterexample: Deduplicating shared sources causes the two runs to share or overwrite claim/review state.
+
+  - id: P-010
+    statement: Every completed ResearchRun records the component, policy, and prompt-pack versions needed to interpret its outputs.
+    severity: high
+    scope: provenance
+    oracle: manifest completeness test
+    counterexample: Historical output cannot identify which verifier or policy version produced its state.
+
+  - id: P-011
+    statement: If an ontology participates in interpretation or verification, the ResearchRun records the exact ontology version used.
+    severity: high
+    scope: ontology
+    oracle: run-manifest validation
+    counterexample: Current ontology changes and historical runs have no way to identify their original semantic frame.
+
+  - id: P-012
+    statement: Changing the current ontology must not silently reinterpret an already completed ResearchRun.
+    severity: critical
+    scope: ontology
+    oracle: historical-reproducibility test
+    counterexample: Opening an old run after an ontology update changes its classifications without a new evaluation/version.
+
+  - id: P-013
+    statement: An ontology assertion cannot become canonical solely because a prior ontology version implied it.
+    severity: critical
+    scope: living-ontology
+    oracle: ontology-proposal provenance validator
+    counterexample: Proposed relation is accepted with only circular ontology-derived evidence and no independent support/review.
+
+  - id: P-014
+    statement: Retrieved or user-supplied evidence content must not directly invoke privileged tools, mutate trusted state, or override system policy.
+    severity: critical
+    scope: security
+    oracle: adversarial integration test
+    counterexample: Prompt-injection text inside a source causes shell, secret, or database mutation activity.
+
+  - id: P-015
+    statement: Users from one organization cannot retrieve another organization's protected research objects without explicit authorization.
+    severity: critical
+    scope: authorization
+    oracle: deterministic RBAC/tenant-isolation tests plus mutation tests
+    counterexample: A guessed run, claim, source, or audit ID bypasses organization scoping.
+
+  - id: P-016
+    statement: Any byte mutation of an immutable stored source artifact causes integrity verification to fail.
+    severity: critical
+    scope: artifact-integrity
+    oracle: deterministic hash verification
+    counterexample: Modified source bytes retain a passing integrity state.
+
+  - id: P-017
+    statement: Source lineage must not count downstream copies as independent evidence roots when common ancestry is known.
+    severity: high
+    scope: source-lineage
+    oracle: graph fixture tests
+    counterexample: Three articles copied from one press release are displayed as three independent sources.
+
+  - id: P-018
+    statement: Table/list projections must preserve stable object identity under sorting and filtering.
+    severity: medium
+    scope: ux-contract
+    oracle: browser/E2E test
+    counterexample: Sorting or filtering changes row identity or causes actions to target the wrong run/review/audit event.
