@@ -1,0 +1,41 @@
+[
+  {
+    "id": "reviewq_001",
+    "run_id": "run_grid_001",
+    "document_version_id": "docv_grid_003",
+    "risk_reason": "Universal break-even threshold is not justified by the evidence set.",
+    "severity": "HIGH",
+    "primary_claim_id": "clm_005",
+    "owner": "Maya Chen",
+    "review_state": "OPEN",
+    "created_at": "2026-09-11T15:41:00-04:00",
+    "updated_at": "2026-09-11T16:08:00-04:00",
+    "finding": "Preserve project-specific qualifiers and reject universal threshold language."
+  },
+  {
+    "id": "reviewq_002",
+    "run_id": "run_market_005",
+    "document_version_id": "docv_market_002",
+    "risk_reason": "Summary strengthened an industry forecast beyond the cited source wording.",
+    "severity": "HIGH",
+    "primary_claim_id": "clm_market_011",
+    "owner": "Jon Bell",
+    "review_state": "CHANGES_REQUESTED",
+    "created_at": "2026-09-09T16:52:00-04:00",
+    "updated_at": "2026-09-09T17:30:00-04:00",
+    "finding": "Restore the source's uncertainty language and separate forecast from reported fact."
+  },
+  {
+    "id": "reviewq_003",
+    "run_id": "run_policy_003",
+    "document_version_id": "docv_policy_004",
+    "risk_reason": "Policy review completed; all effective-date qualifiers preserved.",
+    "severity": "LOW",
+    "primary_claim_id": null,
+    "owner": "Elena Brooks",
+    "review_state": "APPROVED",
+    "created_at": "2026-09-10T13:00:00-04:00",
+    "updated_at": "2026-09-10T13:20:00-04:00",
+    "finding": "Approved with no material findings."
+  }
+]
