@@ -1,0 +1,15 @@
+[
+  {"name":"a_large_composite_ui_ux_showcase_image_with_multip.png","sha256":"082464c2d204e252baf6bada1419050d086c85b426531aa5fcc7cae72d9d2d1b","width":1536,"height":1024,"bytes":2037442,"status":"historical"},
+  {"name":"a_single_composite_image_of_a_dark_mode_modern_ui.png","sha256":"a227eb59a4ff6e6816c53f7a85901b3e27aef096aa35add54b772a0e46f7615a","width":1536,"height":1024,"bytes":1825691,"status":"historical"},
+  {"name":"a_wide_dark_mode_ui_ux_dashboard_mockup_collage_i.png","sha256":"d006954d1890db5efea9a8ff2146ffdf8229dd29f03c15c25cd8d4278bce4c83","width":1536,"height":1024,"bytes":1775847,"status":"accepted-v1-direction","repository_derivative":"accepted-v1-direction.webp"},
+  {"name":"cosmic_research_library_dashboard.png","sha256":"81120bd0fc629c3aaf2785f0f258ae005bcbac86164d9f0686f91adc56f542e9","width":1448,"height":1086,"bytes":1681845,"status":"historical-exploration"},
+  {"name":"futuristic_dark_research_dashboard.png","sha256":"a709c24648f505581449d344135c5e1d5e898dc851be2806ea5f8a5569295b8a","width":1448,"height":1086,"bytes":1741301,"status":"historical-exploration"},
+  {"name":"research_assurance_audit_dashboard.png","sha256":"d1e2c7517cf50487584d284a91f52a43289408334c9b51b4b255a1e1a2496242","width":1672,"height":941,"bytes":1777789,"status":"historical"},
+  {"name":"research_assurance_audit_dashboard_2.png","sha256":"47ca282ae75b2d5a3d7ecc37690866b38d429dcfdb8a37f26946e350aaef6d78","width":1448,"height":1086,"bytes":1603083,"status":"historical"},
+  {"name":"research_assurance_audit_dashboard_3.png","sha256":"67d09b1495707b48d01a652c1738a9acb062c80222cce51df2e06e19702a3766","width":1448,"height":1086,"bytes":1616694,"status":"historical"},
+  {"name":"research_assurance_dashboard_interface.png","sha256":"f862c93c110a18df0998fd5cb273c616957c7e08a81eac24ee02fb0cdfcb7435","width":1672,"height":941,"bytes":1369997,"status":"historical-rejected-too-busy"},
+  {"name":"research_assurance_mission_control_dashboard.png","sha256":"cb945c60582532e51fb2eccf88859e9121257d7ef1d089df196bb45fecbd31e0","width":1448,"height":1086,"bytes":1521905,"status":"historical-exploration"},
+  {"name":"research_assurance_mission_dashboard.png","sha256":"dfd753bf3a13c13081f6844f2e12f19f8dee4084e0463650b0eaf2ead0e8d20d","width":1448,"height":1086,"bytes":1525296,"status":"historical-exploration"},
+  {"name":"research_assurance_ux_concept_board.png","sha256":"fd1d4ea05b33331eef85c6f29dc9d969e19852438bc960c52d23712c409de8e1","width":1672,"height":941,"bytes":1508649,"status":"historical-concept-board"},
+  {"name":"research_assurance_verifiable_ai_journey.png","sha256":"b15402a2cfb054ffe0bf9d7c265fb2633e5476968b4fcff6e766c2990cf87ada","width":1672,"height":941,"bytes":1676208,"status":"historical"}
+]
